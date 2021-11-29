@@ -1,4 +1,5 @@
 import 'package:auth_screen/constants.dart';
+import 'package:auth_screen/info.dart';
 import 'package:flutter/material.dart';
 
 class SignInScreen extends StatelessWidget {
@@ -64,33 +65,37 @@ class SignInScreen extends StatelessWidget {
                       Expanded(
                         child: TextField(
                           decoration: InputDecoration(
-                            hintText: "Password",
+                            hintText: 'Password',
                           ),
                         ),
                       ),
                     ],
                   ),
                   Spacer(),
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 30),
-                    child: Row(
-                      children: <Widget>[
-                        SizedBox(width: 20),
-                        Spacer(),
-                        Container(
-                          padding: EdgeInsets.all(16),
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: kPrimaryColor,
-                          ),
-                          child: Icon(
-                            Icons.arrow_forward,
-                            color: Colors.black,
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
+                  Positioned(
+                      width: 180,
+                      height: 40,
+                      bottom: 320,
+                      left: 100,
+                      child: ElevatedButton(
+                          style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all(
+                            const Color(0xFF555b6e),
+                          )),
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => infoScreen()));
+                          },
+                          child: const Text(
+                            'Login',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w800),
+                          ))),
+                  Spacer(),
+                  Spacer()
                 ],
               ),
             ),
